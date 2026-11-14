@@ -1,10 +1,13 @@
 """ Regular expressions library"""
 import re
 
-email = input("What's your email address? ")
+while True:
+    email = input("What's your email address? ").strip()
+    if re.search(r"^\w+@(\w+\.)?\w+\.(com|edu|org|net)$", email, re.IGNORECASE):
+        print("Valid")
+        print(f"Your email is {email.lower()}")
+        break
+    else:
+        print("Invalid")
+    
 
-if re.search(r"^[^@]+@[^@]+\.com$", email):
-    print("Valid")
-
-else:
-    print("Invalid")
